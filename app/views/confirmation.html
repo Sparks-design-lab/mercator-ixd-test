@@ -1,0 +1,100 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Confirmation page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      {{ govukPanel({
+        
+        titleText: "Selection complete",
+        html: "Your reference number<br><strong>HDJ2123F</strong>"
+        
+      }) }}
+
+      {{ govukSummaryList({
+        rows: [
+          {
+            key: {
+              text: "Which destination would you like to travel to?"
+            },
+            value: {
+              text: data['which-destination']
+            },
+            actions: {
+              items: [
+                {
+                  href: "questions",
+                  visuallyHiddenText: "Which destination would you like to travel to?"
+                }
+              ]
+            }
+          }
+          ,
+          {
+            key: {
+              text: "Tell us your full name"
+            },
+            value: {
+              text: data['fullName']
+            },
+            actions: {
+              items: [
+                {
+                  href: "name",
+                  visuallyHiddenText: "Question 2"
+                }
+              ]
+            }
+          }
+          ,
+          {
+            key: {
+              text: "What is your address?"
+            },
+            value: {
+              text: data['addressLine1']
+            },
+            actions: {
+              items: [
+                {
+                  href: "address",
+                  visuallyHiddenText: "What is your address?"
+                }
+              ]
+            }
+          }
+        ]
+      }
+      ) }}
+
+      <p>
+        We have sent you a confirmation email.
+      </p>
+
+      <h2 class="govuk-heading-m">
+        What happens next
+      </h2>
+
+      <p>
+        We've sent your preference to the Space travel service.
+      </p>
+
+      <p>
+        They will contact you either to confirm your travel, or to ask for more information.
+      </p>
+      <p>
+        <a href="#">
+          What did you think of this service?
+        </a> (takes 30 seconds)
+      </p>
+
+
+    </div>
+  </div>
+
+{% endblock %}
