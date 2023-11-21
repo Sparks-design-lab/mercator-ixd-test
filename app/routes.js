@@ -12,14 +12,21 @@ router.post('/questions-answer', function (req, res) {
     // Make a variable and give it the value from 'which-destination'
     var whichDestination = req.session.data['which-destination']
   
-    // Check whether the variable matches a condition
-    if (whichDestination == "mars"){
-      // Send user to next page
-      res.redirect('/name')
-    } else {
-      // Send user to ineligible page
-      res.redirect('/ineligible')
-    }
+ // Check whether the variable matches a condition
+if (whichDestination == "mars") {
+  // Send user to next page
+  res.redirect('/name');
+} else {
+  // Check another condition
+  if (whichDestination == "moon") {
+    // Send user to another page
+    res.redirect('/name');
+  } else {
+    // Send user to ineligible page
+    res.redirect('/ineligible');
+  }
+}
+
     
   
   })
